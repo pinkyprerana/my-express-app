@@ -1,0 +1,224 @@
+{\rtf1\ansi\ansicpg1252\cocoartf2759
+\cocoatextscaling0\cocoaplatform0{\fonttbl\f0\fswiss\fcharset0 Helvetica;\f1\fmodern\fcharset0 Courier;\f2\fmodern\fcharset0 Courier-Oblique;
+}
+{\colortbl;\red255\green255\blue255;\red72\green151\blue245;\red23\green23\blue26;\red174\green176\blue183;
+\red185\green101\blue173;\red38\green157\blue169;\red195\green123\blue90;\red103\green107\blue114;\red89\green158\blue96;
+}
+{\*\expandedcolortbl;;\csgenericrgb\c28235\c59216\c96078;\csgenericrgb\c9020\c9020\c10196;\csgenericrgb\c68235\c69020\c71765;
+\csgenericrgb\c72549\c39608\c67843;\csgenericrgb\c14902\c61569\c66275;\csgenericrgb\c76471\c48235\c35294;\csgenericrgb\c40392\c41961\c44706;\csgenericrgb\c34902\c61961\c37647;
+}
+\paperw11900\paperh16840\margl1440\margr1440\vieww11520\viewh8400\viewkind0
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 Pop keyboard in all input fields including \'97\'97Forget password screen\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+\cf0 No bouncing physics , implement clamping \
+Test in small device\
+Font sizes and colors match\
+\
+\
+\
+\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f1\fs26 \cf2 \cb3 SizedBox\cf4 (\
+  height: size.\cf5 height \cf4 * \cf6 0.43\cf4 ,\
+  child: \cf2 ListView\cf4 .\cf2 builder\cf4 (\
+    scrollDirection: Axis.\cf5 horizontal\cf4 ,\
+    itemCount: \cf5 activeTasksList\cf4 .\cf5 length\cf4 ,\
+    itemBuilder: (BuildContext context, int index) \{\
+      \cf7 return \cf2 SizedBox\cf4 (\
+        width: size.\cf5 width \cf4 * \cf6 0.5\cf4 ,\
+        child: \cf2 Card\cf4 (\
+          elevation: \cf6 0\cf4 ,\
+          shape: \cf2 RoundedRectangleBorder\cf4 (\
+            borderRadius: \cf2 BorderRadius\cf4 .\cf2 circular\cf4 (AppConfigs.
+\f2\i \cf5 RADIUS_SIZE_DEFAULT
+\f1\i0 \cf4 ),\
+          ),\
+          child: \cf2 InkWell\cf4 (\
+            onTap: () => context.pushRoute(\cf7 const \cf2 ActiveTaskDetailsRoute\cf4 ()),\
+            child: \cf2 Container\cf4 (\
+              decoration: \cf2 BoxDecoration\cf4 (\
+                color: AppColors.
+\f2\i \cf5 colorWhite
+\f1\i0 \cf4 ,\
+                borderRadius: \cf2 BorderRadius\cf4 .\cf2 circular\cf4 (AppConfigs.
+\f2\i \cf5 RADIUS_SIZE_DEFAULT
+\f1\i0 \cf4 ),\
+              ),\
+              child: \cf2 Stack\cf4 (\
+                children: [\
+                  \cf2 Padding\cf4 (\
+                    padding: \cf2 EdgeInsets\cf4 .\cf2 all\cf4 (size.\cf5 width \cf4 * \cf6 0.02\cf4 ), \cf8 // Adjust padding dynamically\
+                    \cf4 child: \cf2 Column\cf4 (\
+                      crossAxisAlignment: CrossAxisAlignment.\cf5 start\cf4 ,\
+                      children: [\
+                        \cf2 SizedBox\cf4 (\
+                          height: size.\cf5 height \cf4 * \cf6 0.15\cf4 ,\
+                          width: double.
+\f2\i \cf5 infinity
+\f1\i0 \cf4 ,\
+                          child: \cf2 ClipRRect\cf4 (\
+                            borderRadius: \cf2 BorderRadius\cf4 .\cf2 circular\cf4 (AppConfigs.
+\f2\i \cf5 RADIUS_SIZE_DEFAULT
+\f1\i0 \cf4 ),\
+                            child: \cf2 Image\cf4 .\cf2 asset\cf4 (\
+                              \cf5 activeTasksList\cf4 [index][\cf9 'image'\cf4 ],\
+                              fit: BoxFit.\cf5 fill\cf4 ,\
+                            ),\
+                          ),\
+                        ),\
+                        \cf2 SizedBox\cf4 (height: size.\cf5 height \cf4 * \cf6 0.01\cf4 ), \cf8 // Adjust spacing dynamically\
+                        \cf2 Text\cf4 (\
+                          \cf5 activeTasksList\cf4 [index][\cf9 'label'\cf4 ],\
+                          style: \cf2 TextStyle\cf4 (\
+                            color: AppColors.
+\f2\i \cf5 colorBlack
+\f1\i0 \cf4 ,\
+                            fontSize: size.\cf5 width \cf4 * \cf6 0.04\cf4 , \cf8 // Adjust font size dynamically\
+                          \cf4 ),\
+                        ),\
+                        \cf2 SizedBox\cf4 (height: size.\cf5 height \cf4 * \cf6 0.005\cf4 ), \cf8 // Adjust spacing dynamically\
+                        \cf2 Text\cf4 (\
+                          \cf5 activeTasksList\cf4 [index][\cf9 'description'\cf4 ],\
+                          style: \cf2 TextStyle\cf4 (\
+                            color: AppColors.
+\f2\i \cf5 descriptionText
+\f1\i0 \cf4 ,\
+                            fontSize: size.\cf5 width \cf4 * \cf6 0.04\cf4 , \cf8 // Adjust font size dynamically\
+                          \cf4 ),\
+                          maxLines: \cf6 3\cf4 ,\
+                        ),\
+                        \cf2 SizedBox\cf4 (height: size.\cf5 height \cf4 * \cf6 0.02\cf4 ), \cf8 // Adjust spacing dynamically\
+                        \cf2 Row\cf4 (\
+                          mainAxisAlignment: MainAxisAlignment.\cf5 start\cf4 ,\
+                          children: [\
+                            \cf2 Container\cf4 (\
+                              height: size.\cf5 height \cf4 * \cf6 0.05\cf4 ,\
+                              width: size.\cf5 width \cf4 * \cf6 0.005\cf4 , \cf8 // Adjust width dynamically\
+                              \cf4 color: AppColors.
+\f2\i \cf5 colorPrimary
+\f1\i0 \cf4 ,\
+                            ),\
+                            \cf2 SizedBox\cf4 (width: size.\cf5 width \cf4 * \cf6 0.02\cf4 ), \cf8 // Adjust spacing dynamically\
+                            \cf2 Container\cf4 (\
+                              height: size.\cf5 height \cf4 * \cf6 0.054\cf4 ,\
+                              width: size.\cf5 width \cf4 * \cf6 0.35\cf4 ,\
+                              decoration: \cf2 BoxDecoration\cf4 (\
+                                borderRadius: \cf2 BorderRadius\cf4 .\cf2 circular\cf4 (AppConfigs.
+\f2\i \cf5 RADIUS_SIZE_DEFAULT
+\f1\i0 \cf4 ),\
+                                color: AppColors.
+\f2\i \cf5 colorWhite
+\f1\i0 \cf4 ,\
+                              ),\
+                              child: \cf2 Column\cf4 (\
+                                crossAxisAlignment: CrossAxisAlignment.\cf5 start\cf4 ,\
+                                children: [\
+                                  \cf2 Text\cf4 (\
+                                    \cf9 "Started Date & Time"\cf4 ,\
+                                    style: \cf2 TextStyle\cf4 (\
+                                      color: AppColors.
+\f2\i \cf5 descriptionText
+\f1\i0 \cf4 ,\
+                                      fontSize: size.\cf5 width \cf4 * \cf6 0.035\cf4 , \cf8 // Adjust font size dynamically\
+                                    \cf4 ),\
+                                  ),\
+                                  \cf2 SizedBox\cf4 (height: size.\cf5 height \cf4 * \cf6 0.005\cf4 ), \cf8 // Adjust spacing dynamically\
+                                  \cf2 Text\cf4 (\
+                                    \cf9 "19 Apr, 2024 at 4:30pm"\cf4 ,\
+                                    style: \cf2 TextStyle\cf4 (\
+                                      color: AppColors.
+\f2\i \cf5 colorPrimary
+\f1\i0 \cf4 ,\
+                                      fontSize: size.\cf5 width \cf4 * \cf6 0.035\cf4 , \cf8 // Adjust font size dynamically\
+                                    \cf4 ),\
+                                  ),\
+                                ],\
+                              ),\
+                            ),\
+                          ],\
+                        ),\
+                      ],\
+                    ),\
+                  ),\
+                  \cf2 Positioned\cf4 (\
+                    child: \cf2 Align\cf4 (\
+                      alignment: Alignment.
+\f2\i \cf5 bottomCenter
+\f1\i0 \cf4 ,\
+                      child: \cf2 TextButton\cf4 (\
+                        onPressed: () => _openBottomDrawer(context, index),\
+                        child: \cf2 AppButton\cf4 (\
+                          height: size.\cf5 height \cf4 * \cf6 0.05\cf4 ,\
+                          text: \cf5 taskReviewStatusList\cf4 [index] ? \cf9 "Under Review" \cf4 : \cf9 "Task Update"\cf4 ,\
+                          textColor: \cf5 taskReviewStatusList\cf4 [index] ? AppColors.
+\f2\i \cf5 colorPrimary 
+\f1\i0 \cf4 : \cf7 null\cf4 ,\
+                          color: \cf5 taskReviewStatusList\cf4 [index] ? AppColors.
+\f2\i \cf5 colorPrimary2
+\f1\i0 \cf4 .withOpacity(\cf6 0.4\cf4 ) : \cf7 null\cf4 ,\
+                        ),\
+                      ),\
+                    ),\
+                  ),\
+                  \cf2 Positioned\cf4 (\
+                    right: size.\cf5 width \cf4 * \cf6 0.05\cf4 ,\
+                    top: size.\cf5 height \cf4 * \cf6 0.11\cf4 ,\
+                    child: \cf2 Container\cf4 (\
+                      height: size.\cf5 height \cf4 * \cf6 0.03\cf4 ,\
+                      width: size.\cf5 width \cf4 * \cf6 0.1\cf4 ,\
+                      padding: \cf2 EdgeInsets\cf4 .\cf2 all\cf4 (size.\cf5 width \cf4 * \cf6 0.007\cf4 ), \cf8 // Adjust padding dynamically\
+                      \cf4 decoration: \cf2 BoxDecoration\cf4 (\
+                        borderRadius: \cf2 BorderRadius\cf4 .\cf2 circular\cf4 (\cf6 24\cf4 ),\
+                        color: AppColors.
+\f2\i \cf5 colorWhite
+\f1\i0 \cf4 ,\
+                      ),\
+                      child: \cf2 Row\cf4 (\
+                        children: [\
+                          \cf2 Container\cf4 (\
+                            decoration: \cf2 BoxDecoration\cf4 (\
+                              shape: BoxShape.\cf5 circle\cf4 ,\
+                              color: AppColors.
+\f2\i \cf5 colorWhite
+\f1\i0 \cf4 ,\
+                            ),\
+                            child: \cf2 CircleAvatar\cf4 (\
+                              backgroundColor: Colors.
+\f2\i \cf5 transparent
+\f1\i0 \cf4 ,\
+                              backgroundImage: \cf2 AssetImage\cf4 (Assets.
+\f2\i \cf5 points
+\f1\i0 \cf4 ),\
+                              radius: size.\cf5 width \cf4 * \cf6 0.015\cf4 , \cf8 // Adjust radius dynamically\
+                            \cf4 ),\
+                          ),\
+                          \cf2 SizedBox\cf4 (width: size.\cf5 width \cf4 * \cf6 0.01\cf4 ), \cf8 // Adjust spacing dynamically\
+                          \cf2 Text\cf4 (\
+                            \cf9 "5P"\cf4 ,\
+                            style: \cf2 TextStyle\cf4 (\
+                              color: AppColors.
+\f2\i \cf5 colorPrimary
+\f1\i0 \cf4 ,\
+                              fontSize: size.\cf5 width \cf4 * \cf6 0.035\cf4 , \cf8 // Adjust font size dynamically\
+                            \cf4 ),\
+                          )\
+                        ],\
+                      ),\
+                    ),\
+                  ),\
+                ],\
+              ),\
+            ),\
+          ),\
+        ),\
+      );\
+    \},\
+  ),\
+),\
+\pard\tx720\tx1440\tx2160\tx2880\tx3600\tx4320\tx5040\tx5760\tx6480\tx7200\tx7920\tx8640\pardirnatural\partightenfactor0
+
+\f0\fs24 \cf0 \cb1 \
+}
