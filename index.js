@@ -52,7 +52,7 @@ app.post('/login', async (req, res) => {
     }
     const token = generateToken(existingUser._id);
     req.session.user = existingUser;
-    res.json({ message: 'User logged in successfully', token });
+    res.json({ email, password , message: 'User logged in successfully', token });
   } catch (error) {
     console.error('Error in login:', error);
     res.status(500).json({ message: 'Server Error' });
